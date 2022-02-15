@@ -3,10 +3,23 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import { 
+  BrowserRouter,
+  Routes,
+  Route
+} from 'react-router-dom';
+import ViewCanvassNotes from './routes/viewCanvassNotes';
+import AddCanvassNote from './routes/addCanvassNote';
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />}>
+          <Route path="view_notes" element={<ViewCanvassNotes />}/>
+          <Route path="add_notes" element={<AddCanvassNote />}/>
+        </Route>
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
